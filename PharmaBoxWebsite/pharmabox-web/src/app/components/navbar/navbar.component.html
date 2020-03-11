@@ -1,0 +1,11 @@
+<div class="nav-bar" align="center" style="position: absolute; top:0; left: 0;">
+	<button mat-button [matMenuTriggerFor]="menuDistributors">Distributeurs</button>
+	<mat-menu #menuDistributors="matMenu">
+		<button routerLink="/distributors" mat-menu-item><mat-icon>account_box</mat-icon> Gestions des distributeurs</button>
+	</mat-menu>
+
+	<button [disabled]="true" mat-button [matMenuTriggerFor]="menuProduct">Médicaments</button>
+	<mat-menu #menuProduct="matMenu">
+		<button routerLink="/products/manage" mat-menu-item><mat-icon>poll</mat-icon> Gestion des produits</button>
+	</mat-menu>
+</div>

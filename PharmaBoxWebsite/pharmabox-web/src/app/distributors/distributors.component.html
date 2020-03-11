@@ -1,0 +1,63 @@
+<div class="page-container">
+	<div class="loading-spinner" *ngIf="isProcessing">
+		<mat-spinner></mat-spinner>
+	</div>
+	<div class="card-list" *ngIf="!isProcessing">
+		<mat-card *ngFor="let distributor of distributors; let i = index" class="card-custom">
+			<mat-card-header>
+				<div mat-card-avatar>
+					<img src="/assets/img/distributor.png" alt="D" />
+				</div>
+				<mat-card-title> {{ distributor.name }}</mat-card-title>
+				<mat-card-subtitle>
+					<a target="blank" href="https://www.google.com/maps/place/{{ distributor.location }}">
+						{{ distributor.location }}
+					</a>
+				</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p></p>
+			</mat-card-content>
+			<mat-card-actions>
+				<mat-accordion>
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								Contenu
+							</mat-panel-title>
+							<mat-panel-description>
+								{{
+									distributor.status == 'on'
+										? distributor.products.length + ' produits'
+										: 'En maintenance - distributeur inactif'
+								}}
+							</mat-panel-description>
+						</mat-expansion-panel-header>
+						<div *ngIf="distributor.products.length > 0">
+							<mat-list role="list">
+								<mat-list-item
+									*ngFor="let product of distributor.products"
+									[ngClass]="{
+										suffisant: product.quantity >= suffusingQuantity,
+										empty: product.quantity <= emptyQuantity,
+										warning: product.quantity >= emptyQuantity && product.quantity <= suffusingQuantity
+									}"
+									role="listitem"
+								>
+									<div class="flex justify">
+										<p>{{ product.name }}</p>
+										<p>{{ product.quantity }}</p>
+									</div>
+									<mat-divider></mat-divider>
+								</mat-list-item>
+							</mat-list>
+						</div>
+						<div *ngIf="distributor.products.length < 0">
+							<h3>Aucun produit dans le distributeur</h3>
+						</div>
+					</mat-expansion-panel>
+				</mat-accordion>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</div>

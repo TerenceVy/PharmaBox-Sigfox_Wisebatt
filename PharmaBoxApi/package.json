@@ -1,0 +1,28 @@
+{
+  "name": "makers_camp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boulinb/MakersCamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boulinb/MakersCamp/issues"
+  },
+  "homepage": "https://github.com/boulinb/MakersCamp#readme",
+  "dependencies": {
+    "auto-bind": "^2.1.0",
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "mongoose": "^5.5.8",
+    "socket.io": "^2.2.0"
+  }
+}
